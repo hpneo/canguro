@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "ORM for node-webkit using WebSQL",
   "main": "index.js",
+  "scripts": {
+    "test": "/Users/hpneo/Development/doublefeature_builder/cache/0.10.5/osx/node-webkit.app/Contents/MacOS/node-webkit ./test"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/hpneo/canguro.git"
@@ -22,5 +25,9 @@
     "inflecta": "0.8.3",
     "sql": "0.39.0",
     "sugar": "1.4.1"
+  },
+  "devDependencies": {
+    "mocha": "2.0.1",
+    "loca": "1.0.1"
   }
 }

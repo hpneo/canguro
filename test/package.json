@@ -1,0 +1,19 @@
+{
+  "name": "canguro_test",
+  "version": "1.0.0",
+  "description": "Canguro testing suite",
+  "author": "Gustavo Leon (hpneo)",
+  "license": "MIT",
+  "main": "index.html",
+  "single-instance": true,
+  "window": {
+    "title": "Canguro testing suite",
+    "width": 900,
+    "height": 530,
+    "min_width": 560,
+    "min_height": 530,
+    "toolbar": true,
+    "position": "center",
+    "show": true
+  }
+}
