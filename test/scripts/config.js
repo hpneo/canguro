@@ -1,5 +1,5 @@
 // show the dev tools by default
-require('nw.gui').Window.get().showDevTools().resizeTo(800, 1000);
+require('nw.gui').Window.get().showDevTools().resizeTo(800, 500);
 
 $(function () {
   // programatically

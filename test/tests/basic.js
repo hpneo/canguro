@@ -1,9 +1,10 @@
 describe('Basic usage', function() {
   var Canguro;
+  
   before(function(done) {
     Canguro = require('../index');
 
-    return Canguro.init({ name: 'canguro_test_' + Date.now() }).then(function(version) {
+    return Canguro.init({ name: 'canguro_basic_test_' + Date.now() }).then(function(version) {
       console.log('current database version', version);
       done();
     });
@@ -20,4 +21,4 @@ describe('Basic usage', function() {
 
     done();
   });
-})
+});
