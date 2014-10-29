@@ -1,0 +1,26 @@
+{
+  "name": "canguro",
+  "version": "0.1.0",
+  "description": "ORM for node-webkit using WebSQL",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hpneo/canguro.git"
+  },
+  "keywords": [
+    "orm",
+    "websql",
+    "node-webkit"
+  ],
+  "author": "Gustavo Leon (hpneo)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hpneo/canguro/issues"
+  },
+  "homepage": "https://github.com/hpneo/canguro",
+  "dependencies": {
+    "inflecta": "0.8.3",
+    "sql": "0.39.0",
+    "sugar": "1.4.1"
+  }
+}
