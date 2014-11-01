@@ -1,5 +1,7 @@
 describe('Associations', function() {
-  var Canguro;
+  var Canguro,
+      PokemonType,
+      Pokemon;
   var fs = require('fs');
   
   before(function(done) {
@@ -10,6 +12,14 @@ describe('Associations', function() {
 
     return Canguro.init({ name: 'canguro_associations_test_' + Date.now() }).then(function(version) {
       done();
+
+      PokemonType = Canguro.defineModel('PokemonType', function() {
+        this.hasMany('pokemons');
+      });
+
+      Pokemon = Canguro.defineModel('Pokemon', function() {
+        this.belongsTo('pokemon_type');
+      });
     });
   });
 
@@ -22,33 +32,53 @@ describe('Associations', function() {
   });
 
   it('should support associations between models', function(done) {
-    var PokemonType = Canguro.defineModel('PokemonType', function() {
-      this.hasMany('pokemons');
-    });
-
-    var Pokemon = Canguro.defineModel('Pokemon', function() {
-      this.belongsTo('pokemon_type');
-    });
-
     expect(PokemonType.modelAssociations.hasMany).to.have.property('pokemons');
     expect(Pokemon.modelAssociations.belongsTo).to.have.property('pokemon_type');
 
+    done();
+  });
+
+  it('should support belongsTo associations', function(done) {
     var blastoise = new Pokemon({
+      id: 123,
       name: 'Blastoise',
       level: 24
     });
 
     var waterType = new PokemonType({
+      id: 456,
       name: 'Water'
     });
 
     expect(blastoise).to.have.property('pokemon_type');
-    expect(waterType).to.have.property('pokemons');
-    
-    // blastoise.pokemon_type_id = 123;
-    // console.log(blastoise.pokemon_type.toQuery());
-    // reload relation after setting attribute associated to belongsTo
 
+    blastoise.pokemon_type = waterType;
+
+    expect(blastoise.pokemon_type.first()).to.be(waterType);
+    expect(blastoise.pokemon_type_id).to.be(waterType.id);
+    
+    done();
+  });
+
+  it('should support hasMany associations', function(done) {
+    var charmander = new Pokemon({
+      id: 987,
+      name: 'Charmander',
+      level: 12
+    });
+
+    var fireType = new PokemonType({
+      id: 654,
+      name: 'Fire'
+    });
+
+    expect(fireType).to.have.property('pokemons');
+
+    fireType.pokemons.push(charmander);
+
+    expect(fireType.pokemons.first()).to.be(charmander);
+    expect(charmander.pokemon_type_id).to.be(fireType.id);
+    
     done();
   });
 });
