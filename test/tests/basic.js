@@ -5,8 +5,15 @@ describe('Basic usage', function() {
     Canguro = require('../index');
 
     return Canguro.init({ name: 'canguro_basic_test_' + Date.now() }).then(function(version) {
+      console.log(Canguro.options.name);
       done();
     });
+  });
+
+  after(function(done) {
+    Canguro.options = null;
+
+    done();
   });
 
   it('should have an empty object called mappedModels', function(done) {

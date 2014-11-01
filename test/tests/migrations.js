@@ -13,11 +13,12 @@ describe('Migrations', function() {
   });
 
   after(function(done) {
+    Canguro.options = null;
     fs.unlink('migrations/1_create_pokemons.js', done);
   });
 
   it('should support migrations', function(done) {
-    expect(localStorage.getItem('schema:pokemons')).to.be.a('string');
+    expect(localStorage.getItem('schema:' + Canguro.options.name + ':pokemons')).to.be.a('string');
 
     done();
   });

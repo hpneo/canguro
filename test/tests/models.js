@@ -18,6 +18,7 @@ describe('Models', function() {
 
   it('should create models', function(done) {
     var Pokemon = Canguro.defineModel('Pokemon');
+    var Model = require('../lib/model');
 
     var blastoise = new Pokemon();
 
