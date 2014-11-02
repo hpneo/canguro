@@ -11,8 +11,8 @@ describe('Basic usage', function() {
   });
 
   after(function(done) {
-    Canguro.options = null;
     Canguro.database = null;
+    Canguro.options = null;
 
     done();
   });

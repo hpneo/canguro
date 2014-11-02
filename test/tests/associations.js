@@ -24,8 +24,8 @@ describe('Associations', function() {
   });
 
   after(function(done) {
-    Canguro.options = null;
     Canguro.database = null;
+    Canguro.options = null;
     
     fs.unlinkSync('migrations/1_create_pokemons.js');
     fs.unlinkSync('migrations/2_create_pokemon_types.js');

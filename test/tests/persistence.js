@@ -14,8 +14,9 @@ describe('Persistence', function() {
   });
 
   after(function(done) {
-    Canguro.options = null;
     Canguro.database = null;
+    Canguro.options = null;
+    
     fs.unlinkSync('migrations/1_create_pokemons.js');
 
     done();
