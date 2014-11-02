@@ -119,7 +119,7 @@ describe('Querying', function() {
     done();
   });
 
-  it('should supporte querying from hasMany associations', function(done) {
+  it('should support querying from hasMany associations', function(done) {
     grassType.pokemons.load().then(function(pokemons) {
       expect(pokemons).to.have.length(3);
     });
@@ -129,6 +129,14 @@ describe('Querying', function() {
     });
 
     waterType.pokemons.where({ level: 8 }).load().then(function(pokemons) {
+      expect(pokemons).to.have.length(1);
+    });
+
+    done();
+  });
+
+  it ('should support querying from model constructor', function(done) {
+    Pokemon.where({ pokemon_type_id: waterType.id, level: 40 }).load().then(function(pokemons) {
       expect(pokemons).to.have.length(1);
     });
 
