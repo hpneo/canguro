@@ -13,13 +13,16 @@ describe('Models', function() {
   });
 
   after(function(done) {
-    fs.unlink('migrations/1_create_pokemons.js', done);
+    Canguro.options = null;
+    Canguro.database = null;
+    fs.unlinkSync('migrations/1_create_pokemons.js');
+
+    done();
   });
 
   it('should create models', function(done) {
     var Pokemon = Canguro.defineModel('Pokemon');
-    var Model = require('../lib/model');
-
+    
     var blastoise = new Pokemon();
 
     expect(blastoise.constructor.tableName).to.be('pokemons');

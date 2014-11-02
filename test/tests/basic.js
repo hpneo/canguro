@@ -12,6 +12,7 @@ describe('Basic usage', function() {
 
   after(function(done) {
     Canguro.options = null;
+    Canguro.database = null;
 
     done();
   });

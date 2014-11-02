@@ -14,6 +14,7 @@ describe('Migrations', function() {
 
   after(function(done) {
     Canguro.options = null;
+    Canguro.database = null;
     fs.unlink('migrations/1_create_pokemons.js', done);
   });
 
