@@ -142,4 +142,12 @@ describe('Querying', function() {
 
     done();
   });
+
+  it ('should support querying with strings', function(done) {
+    Pokemon.where('level > 20').load().then(function(pokemons) {
+      expect(pokemons).to.have.length(4);
+    });
+
+    done();
+  });
 });
