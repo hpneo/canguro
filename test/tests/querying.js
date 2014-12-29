@@ -150,4 +150,12 @@ describe('Querying', function() {
 
     done();
   });
+
+  it ('should support querying with arrays', function(done) {
+    Pokemon.where({ level: [6, 8, 12] }).load().then(function(pokemons) {
+      expect(pokemons).to.have.length(3);
+    });
+
+    done();
+  });
 });
