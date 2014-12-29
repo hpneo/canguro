@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/hpneo/canguro",
   "dependencies": {
-    "inflecta": "0.8.3",
+    "inflected": "1.1.6",
     "sql": "0.39.0",
     "sugar": "1.4.1"
   },
